@@ -46,7 +46,7 @@ public class mod_platillo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_platillo.this);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_platillo.this,null,null,1);
         SQLiteDatabase Base = admin.getWritableDatabase();
         //OBTENER ID PARA BUSQUEDA FORMATO ARRAY STRING
         String[] nid = {String.valueOf(getIntent().getIntExtra("id_modificar", 0))};
@@ -160,7 +160,7 @@ public class mod_platillo extends AppCompatActivity {
 
 //METODO MODIFICAR PLATILLO
     public void actualizar(View view){
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_platillo.this);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_platillo.this,null,null,1);
         SQLiteDatabase Base = admin.getWritableDatabase();
         String nombreP = nomPlat.getText().toString();
         String descripcionP = desPlat.getText().toString();

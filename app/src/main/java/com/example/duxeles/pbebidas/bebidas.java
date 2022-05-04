@@ -10,14 +10,16 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.duxeles.AdminSQLiteOpenHelper;
 import com.example.duxeles.R;
 import com.example.duxeles.pingredientes.ingrediente;
 
-public class bebidas extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class bebidas extends AppCompatActivity {
 
 
     private String nom, precio, desc;
@@ -25,6 +27,7 @@ public class bebidas extends AppCompatActivity {
 
     public bebidas() {
     }
+
 
     public bebidas(String nom, String precio, String desc, int foto) {
         this.nom = nom;
@@ -65,11 +68,12 @@ public class bebidas extends AppCompatActivity {
         this.img = img;
     }
 
-    AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(bebidas.this);
+    //ag_bebida.this,null,null,1);
+    AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(bebidas.this,null,null,1);
 
 
 
-
+//https://stackoverflow.com/questions/38392359/could-not-find-method-in-parent-or-ancestor-context
 
     public void Modificar (View view){
         Intent i = new Intent(bebidas.this, mod_bebida.class);

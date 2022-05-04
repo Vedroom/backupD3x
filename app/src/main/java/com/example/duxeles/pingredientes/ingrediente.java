@@ -15,7 +15,7 @@ import com.example.duxeles.R;
 import com.example.duxeles.pplatillos.platillo;
 
 public class ingrediente extends AppCompatActivity {
-    AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(ingrediente.this);
+    AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(ingrediente.this,null,null,1);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

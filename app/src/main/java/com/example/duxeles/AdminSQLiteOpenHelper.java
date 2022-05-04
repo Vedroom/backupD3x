@@ -19,9 +19,10 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     public static final String t_platillo = "platillo";
 
 
-    public AdminSQLiteOpenHelper(@Nullable Context context) {
+    public AdminSQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, db_nombre, null, db_version);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase BD) {

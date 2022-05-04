@@ -26,7 +26,7 @@ public class mod_ing extends AppCompatActivity {
         NomIng = (EditText) findViewById(R.id.txtNomIng);
         CantIng = (EditText) findViewById(R.id.txtCantIng);
         PreIng = (EditText) findViewById(R.id.txtPreIng);
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_ing.this);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_ing.this,null,null,1);
         SQLiteDatabase Base = admin.getWritableDatabase();
         //OBTENER ID PARA BUSQUEDA FORMATO ARRAY STRING
         String[] nid = {String.valueOf(getIntent().getIntExtra("id_modificar", 0))};
@@ -44,7 +44,7 @@ public class mod_ing extends AppCompatActivity {
         }
     }
     public void actualizar (View view) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_ing.this);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_ing.this,null,null,1);
         SQLiteDatabase Base = admin.getWritableDatabase();
         String nombreI = NomIng.getText().toString();
         String cantidadI = CantIng.getText().toString();

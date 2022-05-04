@@ -1,13 +1,18 @@
 package com.example.duxeles.pbebidas;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duxeles.AdminSQLiteOpenHelper;
 import com.example.duxeles.R;
 import com.example.duxeles.pbebidas.RecyclerViewAdaptador;
 import com.example.duxeles.pbebidas.bebidas;
@@ -20,34 +25,68 @@ import java.util.List;
 public class bebidasActivity extends AppCompatActivity {
 
     //Parte para listar los elementos
-    private RecyclerView recyclerViewBebidas;
-    private RecyclerViewAdaptador adaptadorBebidas;
+    ListView listViewBebidas;
 
+    ArrayList<String> listaInformacion;
+    ArrayList<bebidas> listaBebidas;
+
+    AdminSQLiteOpenHelper conn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_bebidas);
 
-        //Vinculamos la instancia recycler view con el recycler view del layout
-        recyclerViewBebidas=(RecyclerView)findViewById(R.id.recyclerLista);
-        //Definimos la forma de la lista
-        recyclerViewBebidas.setLayoutManager(new LinearLayoutManager(this));
+        conn = new AdminSQLiteOpenHelper(getApplicationContext(),"duxeles.db",null,1);
 
-      //  AdminSQLiteOpenHelper SQLiteHelper = new AdminSQLiteOpenHelper(getApplicationContext());
+        listViewBebidas = (ListView) findViewById(R.id.listViewBebidas);
 
-       // bebidasAdaptador = new RecyclerViewAdaptador(obtenerBebidas());
-        //Asignamos toda la informacion en el recycler view del layout
-        recyclerViewBebidas.setAdapter(adaptadorBebidas);
+        consultarListaBebidas();
+
+        ArrayAdapter adaptador = new ArrayAdapter(this,android.R.layout.simple_list_item_1 ,listaInformacion);
+
+        listViewBebidas.setAdapter(adaptador);
+
     }
 
-    public List<bebidas> obtenerBebidas() {
+    private void consultarListaBebidas(){
 
-        List<bebidas> bebida = new ArrayList<>();
-        bebida.add(new bebidas("Nombre1", "precio", "descripcion", R.drawable.platillos)); //se agregan los datos a agregar en la lista
-        bebida.add(new bebidas("Nombre2", "precio", "descripcion", R.drawable.platillos)); //se agregan los datos a agregar en la lista
-        bebida.add(new bebidas("Nombre3", "precio", "descripcion", R.drawable.platillos)); //se agregan los datos a agregar en la lista
-        bebida.add(new bebidas("Nombre4", "precio", "descripcion", R.drawable.platillos)); //se agregan los datos a agregar en la lista
-        return bebida;
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        bebidas bebidas = null;
+
+        listaBebidas = new ArrayList<bebidas>();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + AdminSQLiteOpenHelper.t_bebidas , null);
+
+        while (cursor.moveToNext()){
+
+            bebidas = new bebidas();
+
+            bebidas.setNom(cursor.getString(0));
+            bebidas.setPrecio(cursor.getString(1));
+            bebidas.setDesc(cursor.getString(2));
+
+            listaBebidas.add(bebidas);
+        }
+
+        obtenerLista();
+        
     }
+
+    private void obtenerLista() {
+        listaInformacion= new ArrayList<String>();
+
+        for(int i=0; i<listaBebidas.size(); i++){
+
+            listaInformacion.add(listaBebidas.get(i).getNom()+" - "+
+                                 listaBebidas.get(i).getPrecio()+" - "+
+                                 listaBebidas.get(i).getDesc());
+        }
+
+
+    }
+
+
+
 }

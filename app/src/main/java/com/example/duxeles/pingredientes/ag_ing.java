@@ -35,7 +35,7 @@ public class ag_ing extends AppCompatActivity {
         //----------------------------
     }
     public void Register (View view){
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(ag_ing.this);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(ag_ing.this,null,null,1); //ag_bebida.this,null,null,1);
         SQLiteDatabase Base = admin.getWritableDatabase();
         String nombreI = NomIng.getText().toString();
         String cantidadI = CantIng.getText().toString();

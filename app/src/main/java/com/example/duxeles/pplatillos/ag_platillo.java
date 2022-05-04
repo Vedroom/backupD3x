@@ -137,7 +137,7 @@ public class ag_platillo extends AppCompatActivity {
 
 //METODO AGREGAR INGREDIENTE
     public void agregar (View view) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(ag_platillo.this);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(ag_platillo.this,null,null,1);
         SQLiteDatabase Base = admin.getWritableDatabase();
         String nombreP = nomPlat.getText().toString();
         String descripcionP = desPlat.getText().toString();

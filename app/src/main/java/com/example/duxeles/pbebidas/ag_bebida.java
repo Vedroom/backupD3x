@@ -63,7 +63,8 @@ public class ag_bebida extends AppCompatActivity {
     //-----------------------------
 //METODO ALTA DE BEBIDAS
     public void Register(View view) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(ag_bebida.this);
+        // public AdminSQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(ag_bebida.this,null,null,1);
         SQLiteDatabase Base = admin.getWritableDatabase();
         String nombreB = NomBebida.getText().toString();
         String descripcionB = DesBebida.getText().toString();

@@ -28,8 +28,8 @@ public class mod_bebida extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mod_bebida);
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_bebida.this);
+        setContentView(R.layout.activity_mod_bebida); //ag_bebida.this,null,null,1);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_bebida.this,null,null,1);
         SQLiteDatabase Base = admin.getWritableDatabase();
         //OBTENER ID PARA BUSQUEDA FORMATO ARRAY STRING
         String[] nid = {String.valueOf(getIntent().getIntExtra("id_modificar", 0))};
@@ -79,8 +79,8 @@ public class mod_bebida extends AppCompatActivity {
         String nombreB = NomBebida.getText().toString();
         String descripcionB = DesBebida.getText().toString();
         String cantidadB = CantBebida.getText().toString();
-        String precioB = PreBebida.getText().toString();
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_bebida.this);
+        String precioB = PreBebida.getText().toString(); //ag_bebida.this,null,null,1);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(mod_bebida.this,null,null,1);
         SQLiteDatabase Base = admin.getWritableDatabase();
         //VALIDACION DE CAMPOS COMPLETOS
         if (!nombreB.isEmpty() && !descripcionB.isEmpty() && !cantidadB.isEmpty() && !precioB.isEmpty() && imagen.getDrawable()!=null) {
