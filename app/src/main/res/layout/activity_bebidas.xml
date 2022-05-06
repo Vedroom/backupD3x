@@ -7,6 +7,22 @@
     android:background="#000000"
     tools:context=".pbebidas.bebidas">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="10dp">
+
+        <ListView
+            android:id="@+id/listViewBebidas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+    </RelativeLayout>
+
     <ImageButton
         android:id="@+id/BtnElimB"
         android:layout_width="60dp"
@@ -44,6 +60,7 @@
         android:layout_marginBottom="16dp"
         android:background="#FFEB3B"
         android:contentDescription="@string/btnAgregarB"
+        android:onClick="Agregar"
         app:layout_constraintBottom_toTopOf="@+id/btnModP"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/agregar"
@@ -62,21 +79,5 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/btnAgregarB"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp">
-
-        <ListView
-            android:id="@+id/listViewBebidas"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </ListView>
-
-    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

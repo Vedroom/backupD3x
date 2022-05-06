@@ -88,14 +88,14 @@ public class bebidas extends AppCompatActivity {
 
         //btnAgregarB = findViewById(R.id.btnAgregarB);
 
-        botonArgrega = findViewById(R.id.botonArgrega);
+        //botonArgrega = findViewById(R.id.botonArgrega);
 
-        botonArgrega.setOnClickListener(new View.OnClickListener(){
+        /*botonArgrega.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 bebidas.this.AgregarBebida();
             }
-        });
+        });*/
 
         /*btnAgregarB.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -116,7 +116,7 @@ public class bebidas extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void AgregarBebida(){
+    public void Agregar(View view){
         Intent a = new Intent(bebidas.this, ag_bebida.class);
         startActivity(a);
     }
