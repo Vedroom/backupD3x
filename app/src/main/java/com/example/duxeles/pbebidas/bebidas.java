@@ -11,10 +11,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.duxeles.AdminSQLiteOpenHelper;
+import com.example.duxeles.MainActivity;
 import com.example.duxeles.R;
 import com.example.duxeles.pingredientes.ingrediente;
 
@@ -76,21 +78,31 @@ public class bebidas extends AppCompatActivity {
 
 //https://stackoverflow.com/questions/38392359/could-not-find-method-in-parent-or-ancestor-context
     private ImageButton btnAgregarB;
+    private Button botonArgrega;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ag_bebida);
+        setContentView(R.layout.activity_bebidas);
 
-        btnAgregarB = findViewById(R.id.btnAgregarB);
+        //btnAgregarB = findViewById(R.id.btnAgregarB);
 
-        btnAgregarB.setOnClickListener(new View.OnClickListener(){
+        botonArgrega = findViewById(R.id.botonArgrega);
+
+        botonArgrega.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 bebidas.this.AgregarBebida();
             }
         });
+
+        /*btnAgregarB.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                bebidas.this.AgregarBebida(view);
+            }
+        }); */
         }
 
 
@@ -104,8 +116,8 @@ public class bebidas extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void AgregarBebida(){
-        Intent a = new Intent(this, ag_bebida.class);
+    public void AgregarBebida(){
+        Intent a = new Intent(bebidas.this, ag_bebida.class);
         startActivity(a);
     }
 
