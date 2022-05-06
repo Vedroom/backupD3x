@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -74,6 +75,24 @@ public class bebidas extends AppCompatActivity {
 
 
 //https://stackoverflow.com/questions/38392359/could-not-find-method-in-parent-or-ancestor-context
+    private ImageButton btnAgregarB;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ag_bebida);
+
+        btnAgregarB = findViewById(R.id.btnAgregarB);
+
+        btnAgregarB.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                bebidas.this.AgregarBebida();
+            }
+        });
+        }
+
 
     public void Modificar (View view){
         Intent i = new Intent(bebidas.this, mod_bebida.class);
@@ -85,8 +104,8 @@ public class bebidas extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void Agregar(View view){
-        Intent a = new Intent(bebidas.this, ag_bebida.class);
+    private void AgregarBebida(){
+        Intent a = new Intent(this, ag_bebida.class);
         startActivity(a);
     }
 

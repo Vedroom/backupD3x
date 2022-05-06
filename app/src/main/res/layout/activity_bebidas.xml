@@ -48,7 +48,7 @@
         app:srcCompat="@drawable/editar" />
 
     <ImageButton
-        android:id="@+id/btnAgregarP"
+        android:id="@+id/btnAgregarB"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
@@ -56,8 +56,8 @@
         android:layout_marginBottom="16dp"
         android:background="#FFEB3B"
         android:contentDescription="@string/btnAgregarB"
-        android:onClick="Agregar"
         app:layout_constraintBottom_toTopOf="@+id/btnModP"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/agregar" />
+        app:srcCompat="@drawable/agregar"
+        tools:ignore="OnClick" />
 </androidx.constraintlayout.widget.ConstraintLayout>
